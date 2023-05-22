@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import {Accordion} from "./Components /Accordion/Accordion";
+import {Accordion1} from "./Components /Accordion/Accordion";
 import {Rating} from "./Components /Rating/Rating";
+
 //function declaration, будем работать с 2 типами функций: стрелочная функция, и function declaration
 //Компонента - Функция, которая объявлена с большой буквы и возвращают JSX разметку — это HTML подобный JS.
 function App() {
@@ -10,9 +11,8 @@ function App() {
         //обязана вернуть JSX
         <div>
             {/*This is App component*/}
-            <PageTitle title={"This is App component"}/>
-            <Rating value={3}/>
-           <Accordion title={"Menu"} />
+           <Accordion1 titleValue={"Menu"} collapsed = {true}/>
+           <Accordion1 titleValue={"User"} />
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
@@ -31,7 +31,11 @@ function App() {
 //обязана быть написана с большой буквы и возвращать JSX разметку.
 //Любое приложение, как правило, начинается с отрисовки App, а внутри App делаем какую-то комбинацию из своих компонент,
 // которые сами разрабатываем и по итогу каждая компонента рисует кукую-то разметку.
-    function PageTitle(props: any) {
+    type PageTitlePropsType = {
+        title: string
+    }
+
+    function PageTitle(props: PageTitlePropsType) {
         debugger
         return (
             <h1> {props.title} </h1>    //React фрагмент - не является HTML элементом, но является JSX элементом и
